@@ -19,6 +19,8 @@ public:
     }
 
     QString afficher();
+
+    Reel operator +=(Reel const &r);
 };
 
 #endif
