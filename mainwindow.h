@@ -10,12 +10,13 @@ namespace Ui {
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
-    
+
     public:
         explicit MainWindow(QWidget *parent = 0);
         ~MainWindow();
         void initialisation();
         void connections_buttons();
+        bool verif_operateur(QString);
 
     private:
         Ui::MainWindow *ui;
@@ -40,6 +41,9 @@ class MainWindow : public QMainWindow {
         void affiche_space();
         void press_egal();
         void press_clear();
+        void press_point();
+        void press_dollar();
+        void press_rationnel();
 };
 
 #endif

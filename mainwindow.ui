@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>305</width>
-    <height>396</height>
+    <width>339</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>2</y>
-      <width>285</width>
+      <width>309</width>
       <height>349</height>
      </rect>
     </property>
@@ -40,7 +40,7 @@
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="4" column="0">
+       <item row="4" column="0" colspan="2">
         <widget class="QPushButton" name="button_0">
          <property name="text">
           <string>0</string>
@@ -140,16 +140,6 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1" colspan="2">
-        <widget class="QPushButton" name="button_egal">
-         <property name="text">
-          <string>=</string>
-         </property>
-         <property name="shortcut">
-          <string>=</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="3">
         <widget class="QPushButton" name="button_plus">
          <property name="text">
@@ -210,6 +200,46 @@
          </property>
         </widget>
        </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="button_egal">
+         <property name="text">
+          <string>=</string>
+         </property>
+         <property name="shortcut">
+          <string>=</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="button_point">
+         <property name="text">
+          <string>.</string>
+         </property>
+         <property name="shortcut">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="button_rationnel">
+         <property name="text">
+          <string>r</string>
+         </property>
+         <property name="shortcut">
+          <string>R</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="button_dollar">
+         <property name="text">
+          <string>$</string>
+         </property>
+         <property name="shortcut">
+          <string>$</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>
@@ -220,7 +250,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>305</width>
+     <width>339</width>
      <height>22</height>
     </rect>
    </property>

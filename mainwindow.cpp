@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include<iostream>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
 
@@ -17,6 +17,8 @@ MainWindow::~MainWindow() {
 
 void MainWindow::initialisation() {
     ecran = "";
+    ui->ecran->setText("");
+    ui->ecran->setStyleSheet("background-color: white");
     pile = new Pile();
 }
 
@@ -39,6 +41,9 @@ void MainWindow::connections_buttons() {
     connect(ui->button_space, SIGNAL(clicked()), this, SLOT(affiche_space()));
     connect(ui->button_egal, SIGNAL(clicked()), this, SLOT(press_egal()));
     connect(ui->button_clear, SIGNAL(clicked()), this, SLOT(press_clear()));
+    connect(ui->button_point, SIGNAL(clicked()), this, SLOT(press_point()));
+    connect(ui->button_rationnel, SIGNAL(clicked()), this, SLOT(press_rationnel()));
+    connect(ui->button_dollar, SIGNAL(clicked()), this, SLOT(press_dollar()));
 }
 
 void MainWindow::affiche_0() {
@@ -82,40 +87,67 @@ void MainWindow::affiche_9() {
     ui->ecran->setText(ecran);
 }
 void MainWindow::affiche_plus() {
-    ecran=ecran.append("+");
+    verif_operateur(QString("+"));
     ui->ecran->setText(ecran);
 }
 void MainWindow::affiche_moins() {
-    ecran=ecran.append("-");
+    verif_operateur(QString("-"));
     ui->ecran->setText(ecran);
 }
 void MainWindow::affiche_divise() {
-    ecran=ecran.append("/");
+    verif_operateur(QString("/"));
     ui->ecran->setText(ecran);
 }
 void MainWindow::affiche_fois() {
-    ecran=ecran.append("*");
+    verif_operateur(QString("*"));
     ui->ecran->setText(ecran);
 }
 void MainWindow::affiche_space() {
-    ecran=ecran.append(" ");
+    if(QString::compare(ecran.at(ecran.length()-1), " "))
+        ecran=ecran.append(" ");
     ui->ecran->setText(ecran);
 }
+
 void MainWindow::press_clear() {
     ecran="";
     pile->clear();
     ui->ecran->setText(ecran);
     ui->ecran_pile->setText(ecran);
 }
+
+void MainWindow::press_point() {
+    ecran=ecran.append(".");
+    ui->ecran->setText(ecran);
+}
+
+void MainWindow::press_dollar() {
+    ecran=ecran.append("$");
+    ui->ecran->setText(ecran);
+}
+
+void MainWindow::press_rationnel() {
+    ecran=ecran.append("/");
+    ui->ecran->setText(ecran);
+}
+
 void MainWindow::press_egal() {
     ui->ecran->setText(ecran);
     pile->parsage(ecran);
     QString s = "Pile : ";
+    pile->pop();
     while(!pile->isEmpty()) {
         s = s.append("\n");
-        s = s.append(QString::number(pile->top()));
+        s = s.append(pile->top()->afficher());
         pile->pop();
     }
     ui->ecran_pile->setText(s);
+}
+
+bool MainWindow::verif_operateur(QString s) {
+    if(ecran.length() > 1 && QString::compare(ecran.at(ecran.length()-1), " "))
+        ecran=ecran.append(" ");
+    ecran=ecran.append(s);
+    ecran=ecran.append(" ");
+    return true;
 }
 

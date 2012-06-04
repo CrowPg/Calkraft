@@ -3,9 +3,11 @@
 #include <QStack>
 #include <QString>
 #include <QStringList>
-#include<iostream>
+#include <iostream>
+#include "Constante.h"
+#include "Entier.h"
 
-class Pile : public QStack<int>{
+class Pile : public QStack<Constante*>{
     public:
         void parsage(QString s);
         void calcul(QString s);
