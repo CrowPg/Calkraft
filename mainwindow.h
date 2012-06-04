@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow {
         void initialisation();
         void connections_buttons();
         bool verif_operateur(QString);
+        void refresh_ecran();
 
     private:
         Ui::MainWindow *ui;

@@ -1,11 +1,3 @@
-//
-//  Complexe.h
-//  Nombres
-//
-//  Created by Johan Medioni on 04/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #ifndef Nombres_Complexe_h
 #define Nombres_Complexe_h
 #include "Constante.h"
@@ -29,9 +21,7 @@ public:
         return 5;
     }
 
-    QString afficher(){
-        return "complexe";
-    }
+    QString afficher();
 };
 
 #endif

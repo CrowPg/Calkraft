@@ -133,12 +133,18 @@ void MainWindow::press_rationnel() {
 void MainWindow::press_egal() {
     ui->ecran->setText(ecran);
     pile->parsage(ecran);
+    refresh_ecran();
+}
+
+void MainWindow::refresh_ecran() {
     QString s = "Pile : ";
-    pile->pop();
-    while(!pile->isEmpty()) {
-        s = s.append("\n");
-        s = s.append(pile->top()->afficher());
-        pile->pop();
+    if(!pile->isEmpty()) {
+        //pile->pop();
+        while(!pile->isEmpty()) {
+            s = s.append("\n");
+            s = s.append(pile->top()->afficher());
+            pile->pop();
+        }
     }
     ui->ecran_pile->setText(s);
 }

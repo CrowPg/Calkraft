@@ -1,26 +1,33 @@
 #include "Pile.h"
 #include "Entier.h"
 
-
-
 void Pile::parsage(QString s) {
     QStringList list = s.split(" ");
     foreach (const QString &val, list) {
         if(val != "+" && val != "-" && val != "*" && val != "/" && val != " ") {
-            if(val.contains('.')) {
-                std::cout << "\n"<< val.toStdString() << " C'est un reel";
-                push(new Reel(val.toDouble()));
-            }
-            else if(val.contains('$')) {
+
+            //Complexe
+            if(val.contains('$')) {
                 std::cout << "\n"<< val.toStdString() << " C'est un complexe";
                 double a = val.mid(0, val.indexOf('$')).toDouble();
-                std::cout << val.length() << " plouf "<< val.indexOf(('$'));
                 double b = val.mid(val.indexOf(('$'))+1).toDouble();
                 push(new Complexe(a, b));
             }
+
+            //Rationnel
             else if(val.contains('/')) {
                 std::cout << "\n"<< val.toStdString() << " C'est un rationnel";
+                double a = val.mid(0, val.indexOf('/')).toDouble();
+                double b = val.mid(val.indexOf(('/'))+1).toDouble();
+                push(new Rationnel(a, b));
             }
+            //Reel
+            else if(val.contains('.')) {
+                std::cout << "\n"<< val.toStdString() << " C'est un reel";
+                push(new Reel(val.toDouble()));
+            }
+
+            //Entier
             else {
                 std::cout << "\n"<< val.toStdString() << " C'est un entier";
                 push(new Entier(val.toInt()));
