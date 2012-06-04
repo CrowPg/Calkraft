@@ -21,7 +21,10 @@ public:
     QString afficher();
 
     Reel operator +=(Reel const &r);
+    Reel operator -();
     Reel operator -=(Reel const &r);
+    Reel operator *=(Reel const &r);
+    Reel operator /=(Reel const &r);
 };
 
 #endif
