@@ -3,8 +3,7 @@
 
 #include "Constante.h"
 #include "Reel.h"
-#include "Complexe.h"
-#include "Erreur.h"
+#include "Entier.h"
 
 class Rationnel : public Constante{
     int num;
@@ -27,6 +26,10 @@ public:
         return 0;
     }
 
+    void setDen(int n){
+        den=n;
+    }
+
     operator Reel(){
         return Reel(num/den);
     }
@@ -35,6 +38,7 @@ public:
     }
 
     QString afficher();
+
 };
 
 #endif

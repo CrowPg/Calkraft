@@ -1,26 +1,26 @@
 #include "Entier.h"
 
-Entier& operator+=(Entier const &n){
+Entier& Entier::operator+=(Entier const &n){
     val+=n.val;
     return *this;
 }
 
-Entier& operator-(){
+Entier& Entier::operator-(){
     val=-val;
     return *this;
 }
 
-Entier& operator-=(Entier const &n){
+Entier& Entier::operator-=(Entier const &n){
     val-=n.val;
     return *this;
 }
 
-Entier& operator*=(Entier const &n){
+Entier& Entier::operator*=(Entier const &n){
     val*=n.val;
     return *this;
 }
 
-Entier& operator/=(Entier const &n){
+Entier& Entier::operator/=(Entier const &n){
     val/=n.val;
     return *this;
 }
@@ -43,8 +43,7 @@ Entier operator *(Entier const &n1, Entier const &n2){
     return n;
 }
 
-Reel operator /(Entier const &n1, Entier const &n2){
-    Reel n(n1);
-    n/=(Reel)n2;
+Rationnel operator /(Entier const &n1, Entier const &n2){
+    Rationnel n(n1.getVal(),n2.getVal());
     return n;
 }

@@ -1,5 +1,6 @@
 #ifndef Nombres_Complexe_h
 #define Nombres_Complexe_h
+
 #include "Constante.h"
 
 class Complexe : public Constante{

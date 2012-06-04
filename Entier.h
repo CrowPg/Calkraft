@@ -2,7 +2,6 @@
 #define Nombres_Header_h
 
 #include "Constante.h"
-#include "Reel.h"
 #include "Rationnel.h"
 
 class Entier : public Constante{
@@ -29,13 +28,12 @@ public:
 
     operator Complexe(){
         return Complexe((double)val, 0);
-
+    }
         Entier& operator+=(Entier const &n);
         Entier& operator-();
         Entier& operator-=(Entier const &n);
         Entier& operator*=(Entier const &n);
         Entier& operator/=(Entier const &n);
-    }
 };
 
 Entier operator +(Entier const &n1, Entier const &n2);
