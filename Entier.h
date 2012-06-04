@@ -1,3 +1,11 @@
+//
+//  Header.h
+//  Nombres
+//
+//  Created by Johan Medioni on 04/06/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
 #ifndef Nombres_Header_h
 #define Nombres_Header_h
 
@@ -29,7 +37,18 @@ public:
 
     operator Complexe(){
         return Complexe((double)val, 0);
+
+        Entier& operator+=(Entier const &n);
+        Entier& operator-();
+        Entier& operator-=(Entier const &n);
+        Entier& operator*=(Entier const &n);
+        Entier& operator/=(Entier const &n);
     }
 };
+
+Entier operator +(Entier const &n1, Entier const &n2);
+Entier operator -(Entier const &n1, Entier const &n2);
+Entier operator *(Entier const &n1, Entier const &n2);
+Rationnel operator /(Entier const &n1, Entier const &n2);
 
 #endif
